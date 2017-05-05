@@ -1,0 +1,42 @@
+---
+layout: post
+title: Week 17
+---
+
+### Monday 
+
++ Backend update
++ MRs
++ #132 Fix tag builds
++ text box to ng2
++ fio-font `npm version`
+
+### Tuesday
+
++ text box to ng2
++ VF-2510 No word separation for smaller resolutions
++ e2e tests:
+  
+  + legitimately failing:
+  ```javascript
+  it('the footer should contain the button rememberClient in selectionMode', function() {
+            app.estates.edit.customers.selectionModeSwitch.click();
+            expect(app.estates.edit.customers.toolbar.rememberClientButton.isDisplayed()).toBe(true);
+  });
+  ```
+  +  `Failed: No element found using locator: By(css selector, [fc-translate="SearchUpper"])` --> lots of test failures with this; indicates a central problem either with test setup or with a change central to the application
+  + `Expected 0 not to equal 0.` --> indicates either a genuine test failure or a problem with the selected/accessed item (e.g. permissions not set as expected, estate has no files, etc.). This has to be fixed by improving the test setup to always select items that fit the expectations.
+  + Going through the spec files one by one, trying to find the mass that fails
+  + `No element found using locator: by.binding("validator.message")` --> not a helpful fail
+  + Need to look into improving the messages as they are without any value
+
+### Wednesday
+
++ party for 4.0 / team building?
++ ng2 text box tests
++ e2e tests
+
+### Thursday
+
++ ng2 text box tests
+
